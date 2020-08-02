@@ -6,4 +6,4 @@ A simple webapp for Pearson College UWC alumni to convert between their start/gr
 
 Simply enter one of the three values and the other two get auto-populated:
 
-![]("docs/screenshot.jpg")
+![Screenshot of webapp]("./docs/screenshot.jpg")
