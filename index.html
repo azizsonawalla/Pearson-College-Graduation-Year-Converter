@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Pearson College Graduation Year Converter</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+        <script>
+            function getFields() {
+                return {
+                    start: Number(document.getElementById("startYear").value),
+                    grad: Number(document.getElementById("gradYear").value),
+                    pc: Number(document.getElementById("pcYear").value)
+                }
+            }
+            function setFields(start, grad, pc) {
+                document.getElementById("startYear").value = start;
+                document.getElementById("gradYear").value = grad;
+                document.getElementById("pcYear").value = pc;
+            }
+            function onStartYear() {
+                const fields = getFields();
+                const startYear = fields.start < 1974 ? 1974 : fields.start;
+                setFields(startYear, startYear + 2, startYear - 1973);
+            }
+            function onGradYear() {
+                const fields = getFields();
+                const gradYear = fields.grad < 1976 ? 1976 : fields.grad;
+                setFields(gradYear - 2, gradYear, gradYear - 1975);
+            }
+            function onPCYear() {
+                const fields = getFields();
+                const pcYear = fields.pc < 1 ? 1 : fields.pc;
+                setFields(pcYear + 1973, pcYear + 1975, pcYear);
+            }
+        </script>
+    </head>
+    <body>
+        <table class="main">
+            <tr>
+                <td>
+                    <table class="title_table">
+                        <tr class="title_data">
+                            <td colspan=2 class="title_data"><p class="title">Pearson Graduation Year Converter</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan=2 class="title_data"><p class="subtitle">Fill any one of the following below to calculate the others</p></td>
+                        </tr>
+                    </table>
+                    <table class="fields_table">
+                        <tr>
+                            <td>
+                                <p>Start Year</p>
+                            </td>
+                            <td>
+                                <input id="startYear" type="number" min="1974" onchange="onStartYear()"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Graduation Year</p>
+                            </td>
+                            <td>
+                                <input id="gradYear" type="number" min="1976" onchange="onGradYear()"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>'PC-Year'</p>
+                            </td>
+                            <td>
+                                <input id="pcYear" type="number" min="1" onchange="onPCYear()"/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
